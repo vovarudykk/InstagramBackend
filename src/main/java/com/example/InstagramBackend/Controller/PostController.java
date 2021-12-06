@@ -26,7 +26,7 @@ public class PostController {
     @GetMapping("/post/{id}")
     public ResponseEntity<?> getPostById(@PathVariable("id") long id) {
         Post resultPost = postService.getPostById(id);
-        if(resultPost.isEmpty()) {
+        if(resultPost == null) {
             return ResponseEntity.ok("Post with this id not found");
         }
         else {
